@@ -7,9 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const musprt = ["head", "chest", "arm", "legs"];
   const spcpart = "skin";
   const cstprt = ["t-shirt", "pants", "shoes", "cap"];
+  const lineNum = document.getElementById("myLabel");
+  let num = 0;
+
+  rowNumer();
 
   button.addEventListener("click", () => {
     let rowNum = input.value.split("\n");
+
     for (let i = 0; i < rowNum.length; i++) {
       if (rowNum[i].includes(selections[0])) {
         skelFun();
@@ -20,6 +25,27 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+
+  function rowNumer() {
+    document.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        num++;
+        lineNum.innerHTML += num + "<br>";
+      }
+    });
+
+    document.onkeydown = function (event) {
+      const key = event.key;
+
+      if (key == "Backspace") {
+        lineNum.innerHTML -= num + "<br>";
+
+        if (num > 0) {
+          num = num - 1;
+        }
+      }
+    };
+  }
 
   function skelFun() {
     let text = input.value;
