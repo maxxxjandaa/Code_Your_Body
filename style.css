@@ -212,6 +212,12 @@ main {
   width: 25px;
 }
 
+@media (min-width: 1920px) {
+  aside {
+    padding: 60px !important;
+  }
+}
+
 /* // <uniquifier>: Use a unique and descriptive class name
 // <weight>: Use a value from 300 to 700
 
